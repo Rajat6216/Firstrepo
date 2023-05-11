@@ -1,0 +1,53 @@
+﻿@model PMS_App.Models.Project_Model
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card shadow-lg border-0 rounded-lg mt-5">
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">Create New Project</h3></div>
+
+            <div class="card-body">
+
+                <div class="form-floating mb-3">
+                    @Html.HiddenFor(model => model.Id)
+
+                    @Html.LabelFor(model => model.Project_Name)
+                    @Html.TextBoxFor(model => model.Project_Name, new { @class = "form-control" })
+
+                    @Html.ValidationMessageFor(model => model.Project_Name, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(model => model.Start_Date)
+                    @Html.TextBoxFor(model => model.Start_Date, "{0:dd-MM-yyyy}", new { @class = "form-control datepicker"})
+
+                    @Html.ValidationMessageFor(model => model.Start_Date, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(model => model.End_Date)
+                    @Html.TextBoxFor(model => model.End_Date, "{0:dd-MM-yyyy}", new { @class = "form-control datepicker"})
+
+                    @Html.ValidationMessageFor(model => model.End_Date, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(model => model.IsActive)
+                    @Html.CheckBoxFor(model => model.IsActive)
+
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-floating mb-3">
+                    <button type="submit" class="btn btn-primary" id="Form_Submit">Submit</button>
+                    <script>$('ProjectForm')[0].reset();</script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #IsActive {
+        transform: scale(1.5); /* Increase the scale of the checkbox */
+    }
+
+</style>

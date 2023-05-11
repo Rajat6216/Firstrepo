@@ -1,0 +1,12 @@
+﻿@model PMS_App.Models.Task_Model
+
+@using (Html.BeginForm("Create","Task", FormMethod.Post, new { id = "TaskForm", enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.Partial("_CreateOrUpdate",Model);
+    </div>
+    @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    }
+
+}

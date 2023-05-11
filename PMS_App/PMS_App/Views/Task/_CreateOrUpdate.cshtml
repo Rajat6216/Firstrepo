@@ -1,0 +1,55 @@
+﻿@model PMS_App.Models.Task_Model
+
+
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card shadow-lg border-0 rounded-lg mt-5">
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">Create New Task</h3></div>
+
+            <div class="card-body">
+
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(model => model.Task_Name)
+                    @Html.TextBoxFor(model => model.Task_Name, new { @class = "form-control" })
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(model => model.Task_Description)
+                    @Html.TextAreaFor(model => model.Task_Description, new { @class = "form-control" })
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(model => model.Start_Date)
+                    @Html.TextBoxFor(model => model.Start_Date, "{0:dd-MM-yyyy}", new { @class = "form-control datepicker"})
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(model => model.End_Date)
+                    @Html.TextBoxFor(model => model.End_Date, "{0:dd-MM-yyyy}", new { @class = "form-control datepicker"})
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(model => model.Employee_Id)
+                    @Html.DropDownListFor(model => model.Employee_Id, new SelectList(Model._EmployeesList, "Id", "Emp_Name"), "-- Select Employee --", new { @class = "form-control" })
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(model => model.Project_Id)
+                    @Html.DropDownListFor(model => model.Project_Id, new SelectList(Model._ProjectsList, "Id", "Project_Name"), "-- Select Project --", new { @class = "form-control" })
+                </div>
+
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(model => model.IsActive)
+                    @Html.CheckBoxFor(model => model.IsActive)
+
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-floating mb-3">
+                    <button type="submit" class="btn btn-primary">Create Task</button>
+                    <script>$('TaskForm')[0].reset();</script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    #IsActive {
+        transform: scale(1.5); /* Increase the scale of the checkbox */
+    }
+
+</style>

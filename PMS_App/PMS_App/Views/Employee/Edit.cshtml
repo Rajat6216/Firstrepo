@@ -1,0 +1,13 @@
+﻿
+@model PMS_App.Models.Employee_Model
+
+@using (Html.BeginForm("Edit", "Employee", FormMethod.Post, new { id = "EmployeeForm"}))
+{
+    <div>
+        @Html.Partial("_CreateOrUpdate",Model);
+    </div>
+   @* @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    }
+*@
+}

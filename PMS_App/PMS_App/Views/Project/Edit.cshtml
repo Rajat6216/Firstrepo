@@ -1,0 +1,13 @@
+﻿@model PMS_App.Models.Project_Model
+
+
+@using (Html.BeginForm("Edit", "Project", FormMethod.Post, new { id = "ProjectForm", enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.Partial("_CreateOrUpdate",Model);
+    </div>
+    @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    }
+
+}

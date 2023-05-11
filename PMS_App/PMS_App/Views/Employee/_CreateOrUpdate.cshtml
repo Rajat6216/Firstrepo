@@ -1,0 +1,60 @@
+﻿@model PMS_App.Models.Employee_Model
+<html>
+    <body>
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card shadow-lg border-0 rounded-lg mt-5">
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">Create New Employee</h3></div>
+
+            <div class="card-body">
+
+                @Html.HiddenFor(model => model.Id,new {@id="Id"})
+                <div class="form-floating mb-3">
+                    <label for="Emp_Name">Employee Name</label>
+                    @Html.TextBoxFor(model => model.Emp_Name, new { @class="form-control",@id="ename", @maxlength=200 })
+                    @Html.ValidationMessageFor(model => model.Emp_Name,"",new {@class = "text-danger"})
+
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="User_Name">User Name</label>
+                    @Html.TextBoxFor(model => model.User_Name, new { @class="form-control",@id="uname", @maxlength=200 })
+                    @Html.ValidationMessageFor(model => model.User_Name,"",new {@class = "text-danger"})
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="User_Password">Password</label>
+                    @Html.PasswordFor(model => model.User_Password, new { @class="form-control" ,@id="password", @maxlength=200 } )
+                    @Html.ValidationMessageFor(model => model.User_Password,"",new {@class = "text-danger"})
+
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="Email">Email</label>
+                    @Html.TextBoxFor(model => model.Email, new { @class="form-control",@id="email", @maxlength=200 })
+                    @Html.ValidationMessageFor(model => model.Email,"",new {@class = "text-danger"})
+
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="Phone">Employee Number</label>
+                    @Html.TextBoxFor(model => model.Phone, new { @class="form-control" ,@id="phone"})
+                    @Html.ValidationMessageFor(model => model.Phone,"",new {@class = "text-danger"})
+
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.CheckBoxFor(model => model.IsActive)
+                    <label class="form-check-label" for="IsActive">-:Is Active</label>
+
+                </div>
+                <button type="submit" class="btn btn-info btn-block mt-3">Create</button>
+                <script>$('EmployeeForm')[0].reset();</script>
+            </div>
+        </div>
+    </div>
+    </div>
+<style>
+    #IsActive {
+        transform: scale(1.5); /* Increase the scale of the checkbox */
+    }
+
+   
+</style>
+</body>
+</html> 

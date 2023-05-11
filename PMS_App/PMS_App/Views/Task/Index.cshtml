@@ -1,0 +1,88 @@
+﻿@model List<Task_Model>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+ 
+<a href="@Url.Action("Create", "Task")" class="btn btn-primary float-lg-right add" style="padding:10px">Add Task</a>
+<br/>
+<br/>
+<div class="List">
+    <h6 class="m-0 font-weight-bold text-primary">Task Details</h6>
+</div>
+    <div class="card shadow mb-4">
+        <div class="box">
+            <div class="box-shadow">
+                <div class="table-responsive">
+                    <table class="table no-margin table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Task Name</th>
+                                <th>Task Description</th>
+                                <th>Working Employee</th>
+                                <th>Project Name</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var task in Model)
+                            {
+                                <tr>
+                                    <td>@task.Task_Name</td>
+                                    <td>@task.Task_Description</td>
+                                    <td>
+                                      
+                                        @task._EmployeesList
+                                                
+                                    </td>
+                                    <td>
+                                        @task._ProjectsList
+                                    </td>
+                                    <td>@task.Start_Date.ToShortDateString()</td>
+                                    <td>@task.End_Date.ToShortDateString()</td>
+                                <td class="text-center">
+                                        <a href="@Url.Action("Edit", "Task", new { id = @task.Id })" class="btn btn-dark edit-btn">Edit</a>
+                                    <button class="btn btn-danger delete-btn" data-id="@task.Id">Delete</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $(document).ready(function () {
+        $('.delete-btn').click(function () {
+            var id = $(this).data('id');
+            var row = $(this).closest('tr');
+
+            if (confirm("Are you sure you want to delete this record?")) {
+                $.ajax({
+                    url: '@Url.Action("Delete", "Task")/' + id,
+                    type: 'POST',
+                    success: function (result) {
+                        row.closest('tr').remove();
+                    },
+                    error: function (xhr, status, error) {
+                        alert("Error deleting record: " + error);
+                    }
+                });
+            }
+        });
+    });
+
+</script>
+
+<style>
+    .List {
+        padding: 20px;
+        margin-left: 20px;
+    }
+
+    .add {
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+</style>
