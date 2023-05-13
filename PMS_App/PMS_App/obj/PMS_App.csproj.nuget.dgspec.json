@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ARNA TECHNOSOFT\\source\\repos\\PMS_App\\PMS_App\\PMS_App.csproj": {}
+    "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App\\PMS_App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ARNA TECHNOSOFT\\source\\repos\\PMS_App\\PMS_App\\PMS_App.csproj": {
+    "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.Model\\PMS_App.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ARNA TECHNOSOFT\\source\\repos\\PMS_App\\PMS_App\\PMS_App.csproj",
-        "projectName": "PMS_App",
-        "projectPath": "C:\\Users\\ARNA TECHNOSOFT\\source\\repos\\PMS_App\\PMS_App\\PMS_App.csproj",
-        "packagesPath": "C:\\Users\\ARNA TECHNOSOFT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ARNA TECHNOSOFT\\source\\repos\\PMS_App\\PMS_App\\obj\\",
+        "projectUniqueName": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.Model\\PMS_App.Model.csproj",
+        "projectName": "PMS_App.Model",
+        "projectPath": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.Model\\PMS_App.Model.csproj",
+        "packagesPath": "C:\\Users\\kunwa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ARNA TECHNOSOFT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kunwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,13 +40,106 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.AspNet.Mvc": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.2.9, )"
+              "version": "[6.0.0, )"
             },
-            "System.Runtime.Extensions": {
+            "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[4.3.1, )"
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App\\PMS_App.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App\\PMS_App.csproj",
+        "projectName": "PMS_App",
+        "projectPath": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App\\PMS_App.csproj",
+        "packagesPath": "C:\\Users\\kunwa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kunwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.Model\\PMS_App.Model.csproj": {
+                "projectPath": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.Model\\PMS_App.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -68,7 +161,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

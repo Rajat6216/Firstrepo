@@ -22,7 +22,7 @@ namespace PMS_App.Models
         public string? Emp_Name { get; set; }
 
         [Required(ErrorMessage = "Username is required.")]
-        public string? User_Name { get; set; }
+        public string? UserName { get; set; }
 
         [Required(ErrorMessage = "Password is required.")]
         [MinLength(8, ErrorMessage = "Password must be at least 8 characters long.")]
@@ -36,8 +36,8 @@ namespace PMS_App.Models
 
         [Required(ErrorMessage = "Phone number is required.")]
         [RegularExpression(@"^\d{10}$", ErrorMessage = "Please enter a valid 10-digit phone number.")]
-        [StringLength(10)]
-        public String? Phone { get; set; }
+        
+        public int Phone { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime Created_On { get; set; }

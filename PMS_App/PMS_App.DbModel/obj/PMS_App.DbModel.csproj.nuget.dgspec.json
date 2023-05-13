@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ARNA TECHNOSOFT\\source\\repos\\PMS_App\\PMS_App.DbModel\\PMS_App.DbModel.csproj": {}
+    "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.DbModel\\PMS_App.DbModel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ARNA TECHNOSOFT\\source\\repos\\PMS_App\\PMS_App.DbModel\\PMS_App.DbModel.csproj": {
+    "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.DbModel\\PMS_App.DbModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ARNA TECHNOSOFT\\source\\repos\\PMS_App\\PMS_App.DbModel\\PMS_App.DbModel.csproj",
+        "projectUniqueName": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.DbModel\\PMS_App.DbModel.csproj",
         "projectName": "PMS_App.DbModel",
-        "projectPath": "C:\\Users\\ARNA TECHNOSOFT\\source\\repos\\PMS_App\\PMS_App.DbModel\\PMS_App.DbModel.csproj",
-        "packagesPath": "C:\\Users\\ARNA TECHNOSOFT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ARNA TECHNOSOFT\\source\\repos\\PMS_App\\PMS_App.DbModel\\obj\\",
+        "projectPath": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.DbModel\\PMS_App.DbModel.csproj",
+        "packagesPath": "C:\\Users\\kunwa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.DbModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ARNA TECHNOSOFT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kunwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

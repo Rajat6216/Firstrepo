@@ -2,7 +2,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
  
-<a href="@Url.Action("Create", "Task")" class="btn btn-primary float-lg-right add" style="padding:10px">Add Task</a>
+<a href="@Url.Action("Create", "Task")" class="btn btn-danger float-lg-right add" style="padding:10px">Add Task</a>
 <br/>
 <br/>
 <div class="List">
@@ -31,12 +31,46 @@
                                     <td>@task.Task_Name</td>
                                     <td>@task.Task_Description</td>
                                     <td>
-                                      
-                                        @task._EmployeesList
-                                                
+                                        @if (task.Id <= 3)
+                                        {
+                                            @foreach (var employee in task._EmployeesList)
+                                            {
+
+                                                @employee.Emp_Name
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @foreach (var employee in task._EmployeesList)
+                                            {
+                                                @if (employee.Id == task.Employee_Id)
+                                                {
+                                                    <span>@employee.Emp_Name</span>
+                                                }
+                                            }
+                                        }
                                     </td>
                                     <td>
-                                        @task._ProjectsList
+                                        @if (task.Id <= 3)
+                                        {
+                                            @foreach (var project in task._ProjectsList)
+                                            {
+
+                                                @project.Project_Name
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @foreach (var project in task._ProjectsList)
+                                            {
+                                                @if (project.Id == task.Project_Id)
+                                                {
+                                                    <span>@project.Project_Name</span>
+                                                }
+                                            }
+                                        }
                                     </td>
                                     <td>@task.Start_Date.ToShortDateString()</td>
                                     <td>@task.End_Date.ToShortDateString()</td>

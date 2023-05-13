@@ -1,51 +1,41 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using PMS_App.Model;
 using PMS_App.Models;
 using System.Numerics;
 using System.Reflection;
+using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace PMS_App.Controllers
 {
     public class EmployeeController : Controller
     {
-        private static List<Employee_Model> Record_List = new List<Employee_Model> {
-        new Employee_Model
+        private readonly ILogger<EmployeeController> _logger;
+        PMSDBContext _db;
+        public EmployeeController(ILogger<EmployeeController> logger, PMSDBContext db)
         {
-            Id = 1,
-            Emp_Name = "Rajat kushwah",
-            User_Name = "Rj101",
-            Email = "rajat@example.com",
-            User_Password = "password123",
-            Phone = "94280468"
-        },
-        new Employee_Model
-        {
-            Id=2,
-            Emp_Name = "Mohit Gupta",
-            User_Name = "Gm102",
-            Email = "mohit@example.com",
-            User_Password = "password456",
-            Phone = "123456789"
-        },
-        new Employee_Model
-        {
-            Id=3,
-            Emp_Name = "punit b",
-            User_Name = "pb103",
-            Email = "punit@example.com",
-            User_Password = "password789",
-            Phone = "987654321"
+            _logger = logger;
+            _db = db;
         }
-    };
 
 
         public IActionResult Index()
         {
-           
-
-
-            return View(Record_List);
-
+           //var GetEmployee = (from e in _db.Employee
+                              
+           //                   select e ).ToList();
+            var employees = _db.Employee.Select(e => new Employee_Model
+            {
+                Id = e.Id,
+                Emp_Name = e.Emp_Name,
+                UserName = e.UserName,
+                Email = e.Email,
+                User_Password = e.User_Password,
+                Phone = e.Phone
+            }).ToList();
+            return View(employees);
 
         }
 
@@ -59,18 +49,8 @@ namespace PMS_App.Controllers
         [HttpPost]
         public IActionResult Create(Employee_Model model)
         {
-              Record_List.Add(new Employee_Model()
-                {
-                    Id = model.Id,
-                    Emp_Name = model.Emp_Name,
-                    User_Name = model.User_Name,
-                    Email = model.Email,
-                    User_Password = model.User_Password,
-                    Phone = model.Phone
-
-                });
-                var record = Record_List;
-                return RedirectToAction("Index",record);
+             
+                return RedirectToAction("Index");
 
              
 
@@ -81,11 +61,25 @@ namespace PMS_App.Controllers
 
         public IActionResult Edit(int id)
         {
-            var employee = Record_List.FirstOrDefault(e => e.Id == id);
+            var employee = _db.Employee.FirstOrDefault(e => e.Id == id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
 
+            var employeeModel = new Employee_Model
+            {
+                Id = employee.Id,
+                Emp_Name = employee.Emp_Name,
+                UserName = employee.UserName,
+                Email = employee.Email,
+                User_Password = employee.User_Password,
+                Phone = employee.Phone
+            };
 
+            return View(employeeModel);
 
-            return View(employee);
+            
         }
 
 
@@ -93,17 +87,18 @@ namespace PMS_App.Controllers
         [HttpPost]
         public IActionResult Edit(Employee_Model model)
         {
-            var employee = Record_List.FirstOrDefault(e => e.Id == model.Id);
+            var employee = _db.Employee.FirstOrDefault(e => e.Id == model.Id);
             if (employee == null)
             {
-                return View("Error");
+                return NotFound();
             }
-
             employee.Emp_Name = model.Emp_Name;
-            employee.User_Name = model.User_Name;
+            employee.UserName = model.UserName;
             employee.Email = model.Email;
             employee.User_Password = model.User_Password;
             employee.Phone = model.Phone;
+
+            _db.SaveChanges();
 
             return RedirectToAction("Index");
         }
@@ -113,14 +108,8 @@ namespace PMS_App.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            var existingRecord = Record_List.FirstOrDefault(r => r.Id == id);
-
-            if (existingRecord != null)
-            {
-                Record_List.Remove(existingRecord);
-            }
-
-            var updatedList = Record_List.ToList();
+           
+            
             return RedirectToAction("Index");
         }
 

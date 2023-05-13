@@ -1,13 +1,12 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PMS_App.DbModel.DbModel
+namespace PMS_App.DbModel
 {
-    internal class Project_Table
+    internal class Employee
     {
     }
 }

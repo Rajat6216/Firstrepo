@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PMS_App.DbModel.DbModel
+namespace PMS_App.DbModel
 {
-    internal class Team
+    internal class Ticket
     {
     }
 }

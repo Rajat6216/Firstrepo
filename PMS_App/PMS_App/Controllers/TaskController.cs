@@ -68,9 +68,7 @@ namespace PMS_App.Controllers
 
         public IActionResult Index(Task_Model model)
         {
-            
-            model._EmployeesList = BindEmployee();
-            model._ProjectsList = BindProject();
+
 
             return View(RecordList);
         }
@@ -164,10 +162,10 @@ namespace PMS_App.Controllers
             _emp = new List<Employee_Model>
             {
 
-                    new Employee_Model { Id = 1,Emp_Name="mark"},
-                    new Employee_Model { Id = 2,Emp_Name="wood"},
-                     new Employee_Model { Id = 3,Emp_Name="Mitchel"},
-                      new Employee_Model { Id = 4,Emp_Name="Starc"}
+                    new Employee_Model { Id = 1,Emp_Name="Mohit"},
+                    new Employee_Model { Id = 2,Emp_Name="Rajat"},
+                     new Employee_Model { Id = 3,Emp_Name="Sachin"},
+                      new Employee_Model { Id = 4,Emp_Name="Aditya"}
 
             };
             return _emp;

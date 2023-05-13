@@ -21,6 +21,7 @@ namespace PMS_App.Controllers
 
         public IActionResult Login()
         {
+            ViewBag.ErrorMessage = null;
             return View();
         }
 
@@ -28,9 +29,13 @@ namespace PMS_App.Controllers
         public IActionResult Login(string email, string password)
         {
 
-            if (email == "admin@gmail.com" && password == "password" || email == "rajat.r.kushwah@gmail.com" && password == "12345678")
+            if (email == "admin@gmail.com" && password == "password")
             {
                 return RedirectToAction("Index", "Home");
+            }
+            else if(email == "rajat.r.kushwah@gmail.com" && password == "12345678" || email == "mohitchauhan@gmail.com" && password == "12345678")
+            {
+                return RedirectToAction("Index","Employee");
             }
            
             else
@@ -69,10 +74,6 @@ namespace PMS_App.Controllers
             return View();
         }
         public IActionResult Charts()
-        {
-            return View();
-        }
-        public IActionResult Cards()
         {
             return View();
         }

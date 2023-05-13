@@ -1,11 +1,18 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
+using PMS_App.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<PMSDBContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PMS_Connection"));
+
+});
 
 var app = builder.Build();
 
