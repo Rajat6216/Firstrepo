@@ -32,8 +32,8 @@
                                 {
                                     <tr id="@project.Id">
                                         <td>@project.Project_Name</td>
-                                        <td>@project.Start_Date.ToShortDateString()</td>
-                                        <td>@project.End_Date.ToShortDateString()</td>
+                                        <td>@project.StartDate.ToShortDateString()</td>
+                                        <td>@project.EndDate.ToShortDateString()</td>
                                     <td class="text-center">
                                             <a href="@Url.Action("Edit","Project",new{id=project.Id})" class="btn btn-dark edit-btn">Edit</a>
                                         <button class="btn btn-danger delete-btn" data-id="@project.Id">Delete</button>

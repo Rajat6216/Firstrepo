@@ -9,109 +9,109 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PMS_App
 build_property.RootNamespace = PMS_App
-build_property.ProjectDir = C:\Users\kunwa\Downloads\PMS_App (1)\PMS_App\PMS_App\
+build_property.ProjectDir = E:\Rajat\Firstrepo\PMS_App\PMS_App\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kunwa\Downloads\PMS_App (1)\PMS_App\PMS_App
+build_property.MSBuildProjectDirectory = E:\Rajat\Firstrepo\PMS_App\PMS_App
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Employee/Create.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Employee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Employee/Edit.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Employee/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Employee/Index.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Employee/_CreateOrUpdate.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Employee/_CreateOrUpdate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcX0NyZWF0ZU9yVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Home/Cards.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Home/Cards.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXJkcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Home/Charts.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Home/Charts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGFydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Home/Forget_Password.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Home/Forget_Password.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGb3JnZXRfUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Home/Index.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Home/Login.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Home/Privacy.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Home/Registration.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Home/Registration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RyYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Home/tables.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Home/tables.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVx0YWJsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Project/Create.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Project/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Project/Edit.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Project/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Project/Index.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Project/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Project/_CreateOrUpdate.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Project/_CreateOrUpdate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxfQ3JlYXRlT3JVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Shared/Error.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Task/Create.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Task/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Task/Edit.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Task/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Task/Index.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Task/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Task/_CreateOrUpdate.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Task/_CreateOrUpdate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xfQ3JlYXRlT3JVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/_ViewImports.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/_ViewStart.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kunwa/Downloads/PMS_App (1)/PMS_App/PMS_App/Views/Shared/_Layout.cshtml]
+[E:/Rajat/Firstrepo/PMS_App/PMS_App/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-c8cgyf52l1

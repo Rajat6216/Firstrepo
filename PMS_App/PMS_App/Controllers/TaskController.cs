@@ -1,188 +1,168 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
+using PMS_App.Model;
 using PMS_App.Models;
 using System.Reflection;
 using System.Threading.Tasks;
+using Task = PMS_App.Model.Task;
 
 namespace PMS_App.Controllers
 {
     public class TaskController : Controller
     {
-        private static List<Task_Model> RecordList = new List<Task_Model>
+        private readonly ILogger<TaskController> _logger;
+        PMSDBContext _db;
+        public TaskController(ILogger<TaskController> logger, PMSDBContext db)
         {
-            new Task_Model
-        {
-            Id = 1,
-            Task_Name = "Create task manager",
-            Task_Description = "Develop a task manager application",
-            Start_Date = new DateTime(2022, 6, 1),
-            End_Date = new DateTime(2022, 6, 30),
-            IsActive = true,
-           _EmployeesList = new List<Employee_Model>
-            {
-                new Employee_Model { Id = 3, Emp_Name = "Mark" }
-            },
-            _ProjectsList = new List<Project_Model>
-            {
-              new Project_Model { Id = 3, Project_Name = "Design website UI" }
-            }
-        },
-        new Task_Model
-        {
-            Id = 2,
-            Task_Name = "Crud operation",
-            Task_Description = "Develop a task manager application",
-            Start_Date = new DateTime(2022, 8, 16),
-            End_Date = new DateTime(2023, 6, 30),
-            IsActive = true,
-           _EmployeesList= new List<Employee_Model>
-            {
+            _logger = logger;
+            _db = db;
+        }
 
-                    new Employee_Model { Id = 1,Emp_Name="Wood"},
-           },
-            _ProjectsList = new List<Project_Model>
-            {
-                new Project_Model { Id = 2, Project_Name = "Develop mobile app" }
-              }
-        },
-            new Task_Model
-            {
-                 Id = 3,
-                Task_Name = "Create task manager",
-                Task_Description = "Develop a task manager application",
-                Start_Date = new DateTime(2022, 6, 1),
-                End_Date = new DateTime(2022, 6, 30),
-                IsActive = true,
-                _EmployeesList = new List<Employee_Model>
-              {
-                new Employee_Model { Id = 1, Emp_Name = "Rajat" }
 
-            },
-                _ProjectsList = new List<Project_Model>
-            {
-                new Project_Model { Id = 1, Project_Name = "Create quotation pdf" }
-                         }
-            }
-
-    };
-
-        public IActionResult Index(Task_Model model)
+        public IActionResult Index()
         {
 
+            var task = (from t in _db.Task
+                        join e in _db.Employee on t.Employee_Id equals e.Id
+                        join g in _db.Project on t.Project_Id equals g.Id
+                        select new Task_Model
+                        {
+                            Id = t.Id,
+                            Task_Name = t.Task_Name,
+                            Task_Description = t.Task_Description,
+                            StartDate = t.StartDate,
+                            EndDate = t.EndDate,
+                            Employee_Id = t.Employee_Id,
+                            Project_Id = t.Project_Id,
+                            IsActive = t.IsActive,
+                            Emp_Name = e.Emp_Name,
+                            Project_Name = g.Project_Name
+                        }).ToList();
+            return View(task);
 
-            return View(RecordList);
         }
         public IActionResult Create()
         {
-            Task_Model model = new Task_Model();
-            model._EmployeesList = BindEmployee();
-            model._ProjectsList = BindProject();
+            var model = new Task_Model();
+            model._EmployeesList = _db.Employee.Select(e => new Employee_Model
+            {
+                Id = e.Id,
+                Emp_Name = e.Emp_Name
+            }).ToList();
+            model._ProjectsList = _db.Project.Select(p => new Project_Model
+            {
+                Id = p.Id,
+                Project_Name = p.Project_Name
+            }).ToList();
 
             return View(model);
         }
 
-
         [HttpPost]
+
         public IActionResult Create(Task_Model model)
         {
-            var task = new Task_Model()
+            var task = new Task
             {
-                Id = model.Id,
                 Task_Name = model.Task_Name,
                 Task_Description = model.Task_Description,
-                Start_Date = model.Start_Date,
-                End_Date = model.End_Date,
+                StartDate = model.StartDate,
+                EndDate = model.EndDate,
                 Employee_Id = model.Employee_Id,
                 Project_Id = model.Project_Id,
-                IsActive = model.IsActive
+                IsActive = model.IsActive,
+                IsDeleted = false,
+                Created_On = DateTime.Now,
+                Updated_On = DateTime.Now,
             };
 
-            task._EmployeesList = BindEmployee();
-            task._ProjectsList = BindProject();
 
-            RecordList.Add(task);
-            return RedirectToAction("Index", model);
+            model._EmployeesList = _db.Employee.Select(e => new Employee_Model
+            {
+                Id = e.Id,
+                Emp_Name = e.Emp_Name
+            }).ToList();
+            model._ProjectsList = _db.Project.Select(p => new Project_Model
+            {
+                Id = p.Id,
+                Project_Name = p.Project_Name
+            }).ToList();
+            _db.Task.Add(task);
+            _db.SaveChanges();
 
-
+            return RedirectToAction("Index");
         }
 
 
         public IActionResult Edit(int id)
         {
-            var model = RecordList.FirstOrDefault(e => e.Id == id);
-
-
-            model._EmployeesList = BindEmployee();
-            model._ProjectsList = BindProject();
-
-
+            var task = _db.Task.FirstOrDefault(e => e.Id == id);
+            if (task == null)
+            {
+                return View("Error");
+            }
+            var model = new Task_Model
+            {
+                Id = task.Id,
+                Task_Name = task.Task_Name,
+                Task_Description = task.Task_Description,
+                StartDate = task.StartDate,
+                EndDate = task.EndDate,
+                Employee_Id = task.Employee_Id,
+                Project_Id = task.Project_Id,
+                IsActive = task.IsActive,
+                Created_On = task.Created_On,
+                Created_By = task.Created_By,
+                Updated_On = task.Updated_On,
+                Updated_By = task.Updated_By,
+                _EmployeesList = _db.Employee.Select(e => new Employee_Model
+                {
+                    Id = e.Id,
+                    Emp_Name = e.Emp_Name
+                }).ToList(),
+                _ProjectsList = _db.Project.Select(p => new Project_Model
+                {
+                    Id = p.Id,
+                    Project_Name = p.Project_Name
+                }).ToList()
+            };
             return View(model);
         }
         [HttpPost]
         public IActionResult Edit(Task_Model model)
         {
-            var task = RecordList.FirstOrDefault(e => e.Id == model.Id);
+            var task = _db.Task.FirstOrDefault(e => e.Id == model.Id);
             if (task == null)
             {
                 return View("Error");
             }
             task.Task_Name = model.Task_Name;
             task.Task_Description = model.Task_Description;
-            task.Start_Date = model.Start_Date;
-            task.End_Date = model.End_Date;
+            task.StartDate = model.StartDate;
+            task.EndDate = model.EndDate;
             task.Created_On = model.Created_On;
-            task.Created_By = model.Created_By;
             task.Updated_On = model.Updated_On;
-            task.Updated_By = model.Updated_By;
             task.Employee_Id = model.Employee_Id;
-            task._EmployeesList = model._EmployeesList;
             task.Project_Id = model.Project_Id;
-            task._ProjectsList = model._ProjectsList;
-            
-            
+
+
             return RedirectToAction("Index");
         }
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            var existingRecord = RecordList.FirstOrDefault(r => r.Id == id);
+            var existingRecord = _db.Task.FirstOrDefault(r => r.Id == id);
 
             if (existingRecord != null)
             {
-                RecordList.Remove(existingRecord);
+                _db.Task.Remove(existingRecord);
             }
 
-            var updatedList = RecordList.ToList();
+
             return RedirectToAction("Index");
         }
 
-        public List<Employee_Model> BindEmployee()
-        {
-            var _emp = new List<Employee_Model>();
-            _emp = new List<Employee_Model>
-            {
 
-                    new Employee_Model { Id = 1,Emp_Name="Mohit"},
-                    new Employee_Model { Id = 2,Emp_Name="Rajat"},
-                     new Employee_Model { Id = 3,Emp_Name="Sachin"},
-                      new Employee_Model { Id = 4,Emp_Name="Aditya"}
-
-            };
-            return _emp;
-        }
-        public List<Project_Model> BindProject()
-        {
-            var _Project = new List<Project_Model>();
-            _Project = new List<Project_Model>
-            {
-
-                new Project_Model { Id = 1, Project_Name = "Create quotation pdf" },
-                new Project_Model { Id = 2, Project_Name = "Develop mobile app" },
-                new Project_Model { Id = 3, Project_Name = "Design website UI" }
-
-            };
-            return _Project;
-        }
 
 
     }

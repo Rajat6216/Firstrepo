@@ -18,7 +18,8 @@ namespace PMS_App.Model
         }
 
         public DbSet<Employee> Employee { get; set; }
-   
+        public DbSet<Project> Project { get; set; }
+        public DbSet<Task> Task { get; set; }
 
     }
 }

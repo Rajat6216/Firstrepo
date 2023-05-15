@@ -2368,19 +2368,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kunwa\\.nuget\\packages\\": {}
+    "C:\\Users\\ARNA TECHNOSOFT\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App\\PMS_App.csproj",
+      "projectUniqueName": "E:\\Rajat\\Firstrepo\\PMS_App\\PMS_App\\PMS_App.csproj",
       "projectName": "PMS_App",
-      "projectPath": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App\\PMS_App.csproj",
-      "packagesPath": "C:\\Users\\kunwa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App\\obj\\",
+      "projectPath": "E:\\Rajat\\Firstrepo\\PMS_App\\PMS_App\\PMS_App.csproj",
+      "packagesPath": "C:\\Users\\ARNA TECHNOSOFT\\.nuget\\packages\\",
+      "outputPath": "E:\\Rajat\\Firstrepo\\PMS_App\\PMS_App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kunwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ARNA TECHNOSOFT\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2394,8 +2394,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.Model\\PMS_App.Model.csproj": {
-              "projectPath": "C:\\Users\\kunwa\\Downloads\\PMS_App (1)\\PMS_App\\PMS_App.Model\\PMS_App.Model.csproj"
+            "E:\\Rajat\\Firstrepo\\PMS_App\\PMS_App.Model\\PMS_App.Model.csproj": {
+              "projectPath": "E:\\Rajat\\Firstrepo\\PMS_App\\PMS_App.Model\\PMS_App.Model.csproj"
             }
           }
         }
@@ -2452,7 +2452,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

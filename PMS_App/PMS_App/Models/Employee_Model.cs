@@ -8,14 +8,8 @@ namespace PMS_App.Models
 {
     public class Employee_Model
     {
-        private static int _nextId = 1;
-
-        public Employee_Model()
-        {
-            Id = _nextId;
-            _nextId++;
-        }
-        [Key]
+        
+       
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Employee name is required.")]
@@ -37,7 +31,7 @@ namespace PMS_App.Models
         [Required(ErrorMessage = "Phone number is required.")]
         [RegularExpression(@"^\d{10}$", ErrorMessage = "Please enter a valid 10-digit phone number.")]
         
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime Created_On { get; set; }

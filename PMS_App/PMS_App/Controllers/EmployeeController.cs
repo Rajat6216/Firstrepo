@@ -49,37 +49,51 @@ namespace PMS_App.Controllers
         [HttpPost]
         public IActionResult Create(Employee_Model model)
         {
-             
-                return RedirectToAction("Index");
+            var newEmployee = new Employee
+            {
+                Emp_Name = model.Emp_Name,
+                UserName = model.UserName,
+                Email = model.Email,
+                User_Password = model.User_Password,
+                Phone = model.Phone,
+                Created_On = DateTime.Now,
+                Updated_On = DateTime.Now,
+               
+            };
 
-             
+            _db.Employee.Add(newEmployee);
+            _db.SaveChanges();
 
-
+            return RedirectToAction("Index");
         }
 
 
 
         public IActionResult Edit(int id)
         {
-            var employee = _db.Employee.FirstOrDefault(e => e.Id == id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
+           
+                var employee = _db.Employee.FirstOrDefault(e => e.Id == id);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
 
-            var employeeModel = new Employee_Model
-            {
-                Id = employee.Id,
-                Emp_Name = employee.Emp_Name,
-                UserName = employee.UserName,
-                Email = employee.Email,
-                User_Password = employee.User_Password,
-                Phone = employee.Phone
-            };
+                var employeeModel = new Employee_Model
+                {
+                    Id = employee.Id,
+                    Emp_Name = employee.Emp_Name,
+                    UserName = employee.UserName,
+                    Email = employee.Email,
+                    User_Password = employee.User_Password,
+                    Phone = employee.Phone,
+                   
 
-            return View(employeeModel);
+                };
 
+                return View(employeeModel);
             
+           
+
         }
 
 
@@ -108,8 +122,10 @@ namespace PMS_App.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-           
-            
+            var employee = _db.Employee.FirstOrDefault(e => e.Id == id);
+            _db.Employee.Remove(employee);
+            _db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

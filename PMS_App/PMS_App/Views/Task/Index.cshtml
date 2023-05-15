@@ -1,91 +1,53 @@
 ﻿@model List<Task_Model>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
- 
 <a href="@Url.Action("Create", "Task")" class="btn btn-danger float-lg-right add" style="padding:10px">Add Task</a>
-<br/>
-<br/>
+<br />
+<br />
 <div class="List">
     <h6 class="m-0 font-weight-bold text-primary">Task Details</h6>
 </div>
-    <div class="card shadow mb-4">
-        <div class="box">
-            <div class="box-shadow">
-                <div class="table-responsive">
-                    <table class="table no-margin table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
+<div class="card shadow mb-4">
+    <div class="box">
+        <div class="box-shadow">
+            <div class="table-responsive">
+                <table class="table no-margin table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Task Description</th>
+                            <th>Working Employee</th>
+                            <th>Project Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Is Active</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
                             <tr>
-                                <th>Task Name</th>
-                                <th>Task Description</th>
-                                <th>Working Employee</th>
-                                <th>Project Name</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th></th>
+                                <td>@item.Task_Name</td>
+                                <td>@item.Task_Description</td>
+                                <td>@item.Emp_Name</td>
+                                <td>@item.Project_Name</td>
+                                <td>@item.StartDate.ToString()</td>
+                                <td>@item.EndDate.ToString()</td>
+                                <td>@(item.IsActive ? "Yes" : "No")</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "Task", new { id = item.Id })" class="btn btn-dark edit-btn">Edit</a>
+                                    <a href="@Url.Action("Delete", "Task", new { id = item.Id })" class="btn btn-danger delete-btn">Delete</a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var task in Model)
-                            {
-                                <tr>
-                                    <td>@task.Task_Name</td>
-                                    <td>@task.Task_Description</td>
-                                    <td>
-                                        @if (task.Id <= 3)
-                                        {
-                                            @foreach (var employee in task._EmployeesList)
-                                            {
-
-                                                @employee.Emp_Name
-
-                                            }
-                                        }
-                                        else
-                                        {
-                                            @foreach (var employee in task._EmployeesList)
-                                            {
-                                                @if (employee.Id == task.Employee_Id)
-                                                {
-                                                    <span>@employee.Emp_Name</span>
-                                                }
-                                            }
-                                        }
-                                    </td>
-                                    <td>
-                                        @if (task.Id <= 3)
-                                        {
-                                            @foreach (var project in task._ProjectsList)
-                                            {
-
-                                                @project.Project_Name
-
-                                            }
-                                        }
-                                        else
-                                        {
-                                            @foreach (var project in task._ProjectsList)
-                                            {
-                                                @if (project.Id == task.Project_Id)
-                                                {
-                                                    <span>@project.Project_Name</span>
-                                                }
-                                            }
-                                        }
-                                    </td>
-                                    <td>@task.Start_Date.ToShortDateString()</td>
-                                    <td>@task.End_Date.ToShortDateString()</td>
-                                <td class="text-center">
-                                        <a href="@Url.Action("Edit", "Task", new { id = @task.Id })" class="btn btn-dark edit-btn">Edit</a>
-                                    <button class="btn btn-danger delete-btn" data-id="@task.Id">Delete</button>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 <script>
     $(document).ready(function () {
         $('.delete-btn').click(function () {
