@@ -20,12 +20,11 @@ namespace PMS_App.Controllers
             _db = db;
         }
 
-
-        public IActionResult Index()
+        public IActionResult Index(Employee_Model model)
         {
-           //var GetEmployee = (from e in _db.Employee
-                              
-           //                   select e ).ToList();
+            //var GetEmployee = (from e in _db.Employee
+
+            //                   select e ).ToList();
             var employees = _db.Employee.Select(e => new Employee_Model
             {
                 Id = e.Id,
@@ -33,7 +32,8 @@ namespace PMS_App.Controllers
                 UserName = e.UserName,
                 Email = e.Email,
                 User_Password = e.User_Password,
-                Phone = e.Phone
+                Phone = e.Phone,
+
             }).ToList();
             return View(employees);
 
@@ -58,7 +58,8 @@ namespace PMS_App.Controllers
                 Phone = model.Phone,
                 Created_On = DateTime.Now,
                 Updated_On = DateTime.Now,
-               
+                IsActive = model.IsActive
+
             };
 
             _db.Employee.Add(newEmployee);
@@ -71,28 +72,28 @@ namespace PMS_App.Controllers
 
         public IActionResult Edit(int id)
         {
-           
-                var employee = _db.Employee.FirstOrDefault(e => e.Id == id);
-                if (employee == null)
-                {
-                    return NotFound();
-                }
 
-                var employeeModel = new Employee_Model
-                {
-                    Id = employee.Id,
-                    Emp_Name = employee.Emp_Name,
-                    UserName = employee.UserName,
-                    Email = employee.Email,
-                    User_Password = employee.User_Password,
-                    Phone = employee.Phone,
-                   
+            var employee = _db.Employee.FirstOrDefault(e => e.Id == id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
 
-                };
+            var employeeModel = new Employee_Model
+            {
+                Id = employee.Id,
+                Emp_Name = employee.Emp_Name,
+                UserName = employee.UserName,
+                Email = employee.Email,
+                User_Password = employee.User_Password,
+                Phone = employee.Phone,
+                IsActive = employee.IsActive
 
-                return View(employeeModel);
-            
-           
+            };
+
+            return View(employeeModel);
+
+
 
         }
 
@@ -123,8 +124,12 @@ namespace PMS_App.Controllers
         public IActionResult Delete(int id)
         {
             var employee = _db.Employee.FirstOrDefault(e => e.Id == id);
-            _db.Employee.Remove(employee);
-            _db.SaveChanges();
+            if (employee != null)
+            {
+                employee.IsDeleted = true;
+                _db.SaveChanges();
+            }
+
 
             return RedirectToAction("Index");
         }

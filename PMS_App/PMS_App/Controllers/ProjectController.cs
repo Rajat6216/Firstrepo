@@ -34,7 +34,8 @@ namespace PMS_App.Controllers
         public IActionResult Create()
         {
 
-            return View();
+                
+                return View();
 
         }
         [HttpPost]
@@ -46,6 +47,8 @@ namespace PMS_App.Controllers
                 Project_Name = model.Project_Name,
                 StartDate = model.StartDate,
                 EndDate = model.EndDate,
+
+                IsActive = model.IsActive
 
             };
             _db.Project.Add(newProject);
@@ -65,7 +68,7 @@ namespace PMS_App.Controllers
                 Project_Name = project.Project_Name,
                 StartDate = project.StartDate,
                 EndDate = project.EndDate,
-
+                IsActive = project.IsActive
             };
 
             return View(ProjectModel);
@@ -91,6 +94,11 @@ namespace PMS_App.Controllers
         public IActionResult Delete(int id)
         {
             var project = _db.Project.FirstOrDefault(e => e.Id == id);
+            if (project != null)
+            {
+                project.IsDeleted = true;
+                _db.SaveChanges();
+            }
 
             return RedirectToAction("Index");
         }

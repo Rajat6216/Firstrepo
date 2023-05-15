@@ -21,7 +21,6 @@
                             <th>Project Name</th>
                             <th>Start Date</th>
                             <th>End Date</th>
-                            <th>Is Active</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -33,9 +32,8 @@
                                 <td>@item.Task_Description</td>
                                 <td>@item.Emp_Name</td>
                                 <td>@item.Project_Name</td>
-                                <td>@item.StartDate.ToString()</td>
-                                <td>@item.EndDate.ToString()</td>
-                                <td>@(item.IsActive ? "Yes" : "No")</td>
+                                <td>@item.StartDate.ToString("dd-MM-yyyy")</td>
+                                <td>@item.EndDate.ToString("dd-MM-yyyy")</td>
                                 <td>
                                     <a href="@Url.Action("Edit", "Task", new { id = item.Id })" class="btn btn-dark edit-btn">Edit</a>
                                     <a href="@Url.Action("Delete", "Task", new { id = item.Id })" class="btn btn-danger delete-btn">Delete</a>

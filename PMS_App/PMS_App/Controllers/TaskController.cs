@@ -10,6 +10,7 @@ namespace PMS_App.Controllers
 {
     public class TaskController : Controller
     {
+      
         private readonly ILogger<TaskController> _logger;
         PMSDBContext _db;
         public TaskController(ILogger<TaskController> logger, PMSDBContext db)
@@ -18,7 +19,7 @@ namespace PMS_App.Controllers
             _db = db;
         }
 
-
+        
         public IActionResult Index()
         {
 
@@ -43,19 +44,10 @@ namespace PMS_App.Controllers
         }
         public IActionResult Create()
         {
-            var model = new Task_Model();
-            model._EmployeesList = _db.Employee.Select(e => new Employee_Model
-            {
-                Id = e.Id,
-                Emp_Name = e.Emp_Name
-            }).ToList();
-            model._ProjectsList = _db.Project.Select(p => new Project_Model
-            {
-                Id = p.Id,
-                Project_Name = p.Project_Name
-            }).ToList();
-
+            var model = GetEmp_Proj();
             return View(model);
+
+           
         }
 
         [HttpPost]
@@ -77,20 +69,12 @@ namespace PMS_App.Controllers
             };
 
 
-            model._EmployeesList = _db.Employee.Select(e => new Employee_Model
-            {
-                Id = e.Id,
-                Emp_Name = e.Emp_Name
-            }).ToList();
-            model._ProjectsList = _db.Project.Select(p => new Project_Model
-            {
-                Id = p.Id,
-                Project_Name = p.Project_Name
-            }).ToList();
+         
             _db.Task.Add(task);
             _db.SaveChanges();
 
             return RedirectToAction("Index");
+           
         }
 
 
@@ -115,17 +99,11 @@ namespace PMS_App.Controllers
                 Created_By = task.Created_By,
                 Updated_On = task.Updated_On,
                 Updated_By = task.Updated_By,
-                _EmployeesList = _db.Employee.Select(e => new Employee_Model
-                {
-                    Id = e.Id,
-                    Emp_Name = e.Emp_Name
-                }).ToList(),
-                _ProjectsList = _db.Project.Select(p => new Project_Model
-                {
-                    Id = p.Id,
-                    Project_Name = p.Project_Name
-                }).ToList()
             };
+            var empProjModel = GetEmp_Proj();
+            model._EmployeesList = empProjModel._EmployeesList;
+            model._ProjectsList = empProjModel._ProjectsList;
+
             return View(model);
         }
         [HttpPost]
@@ -153,16 +131,34 @@ namespace PMS_App.Controllers
         {
             var existingRecord = _db.Task.FirstOrDefault(r => r.Id == id);
 
-            if (existingRecord != null)
-            {
-                _db.Task.Remove(existingRecord);
-            }
+            
+                if (existingRecord != null)
+                {
+                    existingRecord.IsDeleted = true; 
+                    _db.SaveChanges(); 
+                }
+
+            
 
 
             return RedirectToAction("Index");
         }
+        public Task_Model GetEmp_Proj()
+        {
+            var model = new Task_Model();
+            model._EmployeesList = _db.Employee.Select(e => new Employee_Model
+            {
+                Id = e.Id,
+                Emp_Name = e.Emp_Name
+            }).ToList();
+            model._ProjectsList = _db.Project.Select(p => new Project_Model
+            {
+                Id = p.Id,
+                Project_Name = p.Project_Name
+            }).ToList();
 
-
+            return model;
+        }
 
 
     }
