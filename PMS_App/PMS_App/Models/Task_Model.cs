@@ -20,13 +20,13 @@ namespace PMS_App.Models
         public int? Updated_By { get; set; }
 
         public int Employee_Id { get; set; }
-        public List<Employee_Model> _EmployeesList { get; set; }
+        public List<Employee_Model>? _EmployeesList { get; set; }
 
         public int Project_Id { get; set; }
-        public List<Project_Model> _ProjectsList { get; set; }
+        public List<Project_Model>? _ProjectsList { get; set; }
 
-        public string Emp_Name { get; set; }
-        public string Project_Name { get; set; }
+        public string? Emp_Name { get; set; }
+        public string? Project_Name { get; set; }
 
 
 

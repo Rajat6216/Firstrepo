@@ -42,7 +42,12 @@ namespace PMS_App.Controllers
         public IActionResult Create()
         {
 
-            return View();
+            var model = new Employee_Model
+            {
+                IsActive = true
+            };
+
+            return View(model);
 
         }
 
@@ -126,6 +131,7 @@ namespace PMS_App.Controllers
             var employee = _db.Employee.FirstOrDefault(e => e.Id == id);
             if (employee != null)
             {
+                //_db.Employee.Remove(employee);
                 employee.IsDeleted = true;
                 _db.SaveChanges();
             }

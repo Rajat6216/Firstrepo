@@ -44,7 +44,10 @@ namespace PMS_App.Controllers
         }
         public IActionResult Create()
         {
-            var model = GetEmp_Proj();
+          
+          
+          var model = GetEmp_Proj();
+            model.IsActive = true;
             return View(model);
 
            
@@ -98,7 +101,7 @@ namespace PMS_App.Controllers
                 Created_On = task.Created_On,
                 Created_By = task.Created_By,
                 Updated_On = task.Updated_On,
-                Updated_By = task.Updated_By,
+                Updated_By = task.Updated_By
             };
             var empProjModel = GetEmp_Proj();
             model._EmployeesList = empProjModel._EmployeesList;
@@ -123,6 +126,7 @@ namespace PMS_App.Controllers
             task.Employee_Id = model.Employee_Id;
             task.Project_Id = model.Project_Id;
 
+            _db.SaveChanges();
 
             return RedirectToAction("Index");
         }

@@ -31,7 +31,7 @@ namespace PMS_App.Models
         [Required(ErrorMessage = "Phone number is required.")]
         [RegularExpression(@"^\d{10}$", ErrorMessage = "Please enter a valid 10-digit phone number.")]
         
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime Created_On { get; set; }

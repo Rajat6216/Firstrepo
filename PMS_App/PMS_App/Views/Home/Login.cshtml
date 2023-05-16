@@ -22,13 +22,21 @@
 
     <!-- Custom styles for this template-->
     <link href="~/Theme/css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        .container {
+         margin-top:50px;
+        }
+    </style>
 
-</head>
+</head> 
 
 <body class="bg-gradient-primary">
-            <div class="card alert alert-danger" id="errorMessage">
-                @ViewBag.ErrorMessage
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger" id="errorMessage">
+            @ViewBag.ErrorMessage
         </div>
+    }
    
     <div class="container">
 

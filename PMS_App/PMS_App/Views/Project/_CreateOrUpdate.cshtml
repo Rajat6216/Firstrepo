@@ -17,7 +17,7 @@
 
                 <div class="form-floating mb-3">
                     @Html.LabelFor(model => model.StartDate)
-                    @Html.TextBoxFor(model => model.StartDate, "{0:dd-MM-yyyy}", new { @class = "form-control datepicker"})
+                    @Html.TextBoxFor(model => model.StartDate, "{0:dd-MM-yyyy}", new { @class = "form-control datepicker" })
 
                     @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
                 </div>
@@ -51,8 +51,5 @@
         transform: scale(1.5); /* Increase the scale of the checkbox */
     }
 
-    $(function() {
-        $(".datepicker").datepicker({ dateFormat: "dd-mm-yy" });
-    });
-
+   
 </style>

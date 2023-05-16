@@ -33,9 +33,12 @@ namespace PMS_App.Controllers
 
         public IActionResult Create()
         {
+            var model = new Project_Model
+            {
+                IsActive = true
+            };
 
-                
-                return View();
+            return View(model);
 
         }
         [HttpPost]
